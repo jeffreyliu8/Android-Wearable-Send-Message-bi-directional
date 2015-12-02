@@ -19,8 +19,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:text="send"/>
+        android:layout_gravity="center"
+        android:text="send"
+        app:layout_box="all" />
 
     <TextView
         android:id="@+id/clock"
