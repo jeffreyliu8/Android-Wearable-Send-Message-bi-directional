@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.PhoneWatchClass;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.MessageApi;
 import com.google.android.gms.wearable.Node;
@@ -31,7 +32,7 @@ public class SendWatchMessageIntentService extends IntentService implements Goog
         NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mApiClient).await();
         for (Node node : nodes.getNodes()) {
             MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(
-                    mApiClient, node.getId(), Constant.PHONE_TO_WATCH_MESSAGE_PATH, intent.getStringExtra(INPUT_EXTRA).getBytes()).await();
+            mApiClient, node.getId(), PhoneWatchClass.PHONE_TO_WATCH_MESSAGE_PATH, intent.getStringExtra(INPUT_EXTRA).getBytes()).await();
         }
     }
 

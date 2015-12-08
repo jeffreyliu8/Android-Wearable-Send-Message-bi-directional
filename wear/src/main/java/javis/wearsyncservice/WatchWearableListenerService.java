@@ -2,6 +2,7 @@ package javis.wearsyncservice;
 
 import android.content.Intent;
 
+import com.example.PhoneWatchClass;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
@@ -13,7 +14,7 @@ public class WatchWearableListenerService extends WearableListenerService {
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-        if (messageEvent.getPath().equalsIgnoreCase(Constant.PHONE_TO_WATCH_MESSAGE_PATH)) {
+        if (messageEvent.getPath().equalsIgnoreCase(PhoneWatchClass.PHONE_TO_WATCH_MESSAGE_PATH)) {
             String receivedText = new String(messageEvent.getData());
 
             broadcastIntent(receivedText);
